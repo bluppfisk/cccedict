@@ -43,7 +43,9 @@ With setOptions(array) (see above), you can change the data included in the Entr
 - `Entry::F_SIMPLIFIED` same as above but in simplified characters
 - `Entry::F_PINYIN` includes a string of pinyin as formatted in CC-CEDICT (numeric but with ideosyncrasies)
 - `Entry::F_PINYIN_NUMERIC` includes a string of pinyin converted to numeric Hanyu Pinyin
+- `Entry::F_PINYIN_NUMERIC_EXPANDED` returns the above as an array rather than a string
 - `Entry::F_PINYIN_DIACRITIC` includes a string of pinyin converted to Hanyu Pinyin with diacritics
+- `Entry::F_PINYIN_DIACRITIC_EXPANDED` returns the above as an array rather than a string
 - `Entry::F_ENGLISH` includes a string with all the English translations for the dictionary entry
 - `Entry::F_ENGLISH_EXPANDED` includes an array with the above English translations
 - `Entry::F_TRADITIONAL_CHARS` includes an array of all traditional characters in the dictionary entry
@@ -52,6 +54,6 @@ With setOptions(array) (see above), you can change the data included in the Entr
 ## Limitations, bugs, roadmap
 
 ### Opportunities for improvement
-- Well perhaps it could output various formats (e.g. JSON) instead of simply arrays?
+- Perhaps it could output various formats (e.g. JSON) instead of arrays
 - Any further Chinese in the English translation (references, alternative spellings, or full forms of abbreviations) could be structured and nested
 - getFull() still needs to be described (and made accessible, or removed)

@@ -264,7 +264,7 @@ class Entry
                     }
                 } else {
                     // u: => ü conversion still required for neutral tones and anything
-                    // anything that was not a pinyin (like a middot or a single char)
+                    // that was not a pinyin (like a middot or a single char)
                     $returnPinyins[] = str_replace(['u:', 'U:'], ['ü', 'Ü'], $pinyin);
                 }
             } else {
