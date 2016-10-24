@@ -168,7 +168,7 @@ class Parser
             if (count($this->options)) {
                 return $entry->getOptional($this->options);
             } else {
-                return $entry->getBasic();
+                return $entry->getFull();
             }
         } else {
             return false;

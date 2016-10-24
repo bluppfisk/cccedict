@@ -41,21 +41,7 @@ class Entry
     }
 
     /**
-     * gets a basic report of the entry content
-     *
-     * @return array
-     */
-    public function getBasic()
-    {
-        $this->dataOutput[self::F_ENGLISH_EXPANDED] = $this->resolveOption(self::F_ENGLISH_EXPANDED);
-        $this->dataOutput[self::F_TRADITIONAL_CHARS] = $this->resolveOption(self::F_TRADITIONAL_CHARS);
-        $this->dataOutput[self::F_SIMPLIFIED_CHARS] = $this->resolveOption(self::F_SIMPLIFIED_CHARS);
-
-        return $this->dataOutput;
-    }
-
-    /**
-     * gets a report of the entry content, featuring specified fields
+     * Gets a report of the entry content, featuring specified fields
      *
      * @param  array $options Fields we want to see in the report, referenced by
      *                        class constants, e.g. Entry::F_ORIGINAL
@@ -72,16 +58,24 @@ class Entry
     }
 
     /**
-     * gets a full report of the entry content
+     * Gets an Entry with all options set
      *
      * @return array
      */
     public function getFull()
     {
-        $this->getBasic();
-
-        $this->dataOutput[self::F_PINYIN_NUMERIC] = $this->resolveOption(self::F_PINYIN_NUMERIC);
+        $this->dataOutput[self::F_ORIGINAL] = $this->resolveOption(self::F_ORIGINAL);
+        $this->dataOutput[self::F_TRADITIONAL] = $this->resolveOption(self::F_TRADITIONAL);
+        $this->dataOutput[self::F_TRADITIONAL_CHARS] = $this->resolveOption(self::F_TRADITIONAL_CHARS);
+        $this->dataOutput[self::F_SIMPLIFIED] = $this->resolveOption(self::F_SIMPLIFIED);
+        $this->dataOutput[self::F_SIMPLIFIED_CHARS] = $this->resolveOption(self::F_SIMPLIFIED_CHARS);
+        $this->dataOutput[self::F_PINYIN] = $this->resolveOption(self::F_PINYIN);
         $this->dataOutput[self::F_PINYIN_DIACRITIC] = $this->resolveOption(self::F_PINYIN_DIACRITIC);
+        $this->dataOutput[self::F_PINYIN_DIACRITIC_EXPANDED] = $this->resolveOption(self::F_PINYIN_DIACRITIC_EXPANDED);
+        $this->dataOutput[self::F_PINYIN_NUMERIC] = $this->resolveOption(self::F_PINYIN_NUMERIC);
+        $this->dataOutput[self::F_PINYIN_NUMERIC_EXPANDED] = $this->resolveOption(self::F_PINYIN_NUMERIC_EXPANDED);
+        $this->dataOutput[self::F_ENGLISH] = $this->resolveOption(self::F_ENGLISH);
+        $this->dataOutput[self::F_ENGLISH_EXPANDED] = $this->resolveOption(self::F_ENGLISH_EXPANDED);
 
         return $this->dataOutput;
     }

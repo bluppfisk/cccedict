@@ -15,7 +15,7 @@ Reads from a CC-CEDICT Chinese dictionary file, and outputs structured data.
 ## Options
 
 ### Required settings
-- setFilePath() sets path of file to extract and process
+- setFilePath(string) sets path of file to extract and process
 
 ### Optional settings
 - setBlockSize(int) sets block size to read and parse at a time
@@ -30,30 +30,23 @@ The parser will return an array with:
 - the number of parsed lines
 - the number of skipped lines
 
-### Basic Entry object
-By default, the parser will fill the Entry object with:
-- an array of English translations from the dictionary entry
-- an array of traditional characters from the dictionary entry
-- an array of simplified characters from the dictionary entry
-
 ### Customising the Entry object
-With setOptions(array) (see above), you can change the data included in the Entry object. If any options are set, the Entry will not include any data that is not specified with setOptions()!
+In most cases, a full Entry object will be more than you need, so you can use the `setOptions(array)` command (see above) to specify the fields that you want the parser to return with each Entry object. Any non-specified fields will not be included. Below are the available options:
 - `Entry::F_ORIGINAL` includes the original unparsed line from CC-CEDICT
 - `Entry::F_TRADITIONAL` includes a string with the dictionary entry in traditional characters
+- `Entry::F_TRADITIONAL_CHARS` includes an array of all traditional characters in the dictionary entry
 - `Entry::F_SIMPLIFIED` same as above but in simplified characters
+- `Entry::F_SIMPLIFIED_CHARS` same as above but with simplified characters
 - `Entry::F_PINYIN` includes a string of pinyin as formatted in CC-CEDICT (numeric but with ideosyncrasies)
-- `Entry::F_PINYIN_NUMERIC` includes a string of pinyin converted to numeric Hanyu Pinyin
-- `Entry::F_PINYIN_NUMERIC_EXPANDED` returns the above as an array rather than a string
 - `Entry::F_PINYIN_DIACRITIC` includes a string of pinyin converted to Hanyu Pinyin with diacritics
 - `Entry::F_PINYIN_DIACRITIC_EXPANDED` returns the above as an array rather than a string
+- `Entry::F_PINYIN_NUMERIC` includes a string of pinyin converted to numeric Hanyu Pinyin
+- `Entry::F_PINYIN_NUMERIC_EXPANDED` returns the above as an array rather than a string
 - `Entry::F_ENGLISH` includes a string with all the English translations for the dictionary entry
 - `Entry::F_ENGLISH_EXPANDED` includes an array with the above English translations
-- `Entry::F_TRADITIONAL_CHARS` includes an array of all traditional characters in the dictionary entry
-- `Entry::F_SIMPLIFIED_CHARS` same as above but with simplified characters
 
 ## Limitations, bugs, roadmap
 
 ### Opportunities for improvement
 - Perhaps it could output various formats (e.g. JSON) instead of arrays
 - Any further Chinese in the English translation (references, alternative spellings, or full forms of abbreviations) could be structured and nested
-- getFull() still needs to be described (and made accessible, or removed)
